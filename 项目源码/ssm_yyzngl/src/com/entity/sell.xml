@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.SellDAO">
+	<resultMap type="sell" id="sellMap">
+		<id property="sellid" column="sellid" />
+		<result property="sno" column="sno" />
+		<result property="drugsid" column="drugsid" />
+		<result property="num" column="num" />
+		<result property="price" column="price" />
+		<result property="total" column="total" />
+		<result property="addtime" column="addtime" />
+		<result property="drugsname" column="drugsname" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertSell" parameterType="sell">
+		insert into sell(sellid , sno , drugsid , num , price , total , addtime )
+		values(#{sellid} , #{sno} , #{drugsid} , #{num} , #{price} , #{total}
+		, #{addtime} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateSell" parameterType="sell">
+		update sell set sno=#{sno} , drugsid=#{drugsid} , num=#{num} ,
+		price=#{price} , total=#{total} , addtime=#{addtime} where
+		sellid=#{sellid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteSell" parameterType="String">
+		delete from sell where sellid = #{sellid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllSell" resultMap="sellMap">
+		select a.* , b.drugsname from sell a , drugs b where 1=1 and a.drugsid =
+		b.drugsid order by sellid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getSellById" parameterType="String" resultMap="sellMap">
+		select a.* , b.drugsname from sell a , drugs b where 1=1 and a.drugsid
+		= b.drugsid and sellid=#{sellid} order by sellid desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getSellByCond" parameterType="sell" resultMap="sellMap">
+		select a.* , b.drugsname from sell a , drugs b where 1=1 and a.drugsid
+		= b.drugsid
+		<if test="sno != null and '' != sno">
+			and a.sno = #{sno}
+		</if>
+		<if test="drugsid != null and '' != drugsid">
+			and a.drugsid = #{drugsid}
+		</if>
+		<if test="num != null and '' != num">
+			and a.num = #{num}
+		</if>
+		<if test="price != null and '' != price">
+			and a.price = #{price}
+		</if>
+		<if test="total != null and '' != total">
+			and a.total = #{total}
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime = #{addtime}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getSellByLike" parameterType="sell" resultMap="sellMap">
+		select a.* , b.drugsname from sell a , drugs b where 1=1 and a.drugsid
+		= b.drugsid
+		<if test="sno != null and '' != sno">
+			and a.sno like CONCAT('%', CONCAT(#{sno}, '%'))
+		</if>
+		<if test="drugsid != null and '' != drugsid">
+			and a.drugsid like CONCAT('%', CONCAT(#{drugsid}, '%'))
+		</if>
+		<if test="num != null and '' != num">
+			and a.num like CONCAT('%', CONCAT(#{num}, '%'))
+		</if>
+		<if test="price != null and '' != price">
+			and a.price like CONCAT('%', CONCAT(#{price}, '%'))
+		</if>
+		<if test="total != null and '' != total">
+			and a.total like CONCAT('%', CONCAT(#{total}, '%'))
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime like CONCAT('%', CONCAT(#{addtime}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

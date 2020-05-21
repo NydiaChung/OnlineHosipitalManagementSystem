@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.DeptDAO">
+	<resultMap type="dept" id="deptMap">
+		<id property="deptid" column="deptid" />
+		<result property="deptname" column="deptname" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertDept" parameterType="dept">
+		insert into dept(deptid , deptname ) values(#{deptid} , #{deptname} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateDept" parameterType="dept">
+		update dept set deptname=#{deptname} where deptid=#{deptid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteDept" parameterType="String">
+		delete from dept where deptid = #{deptid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllDept" resultMap="deptMap">
+		select a.* from dept a where 1=1 order by deptid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getDeptById" parameterType="String" resultMap="deptMap">
+		select a.* from dept a where 1=1 and deptid=#{deptid} order by deptid
+		desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getDeptByCond" parameterType="dept" resultMap="deptMap">
+		select a.* from dept a where 1=1
+		<if test="deptname != null and '' != deptname">
+			and a.deptname = #{deptname}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getDeptByLike" parameterType="dept" resultMap="deptMap">
+		select a.* from dept a where 1=1
+		<if test="deptname != null and '' != deptname">
+			and a.deptname like CONCAT('%', CONCAT(#{deptname}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

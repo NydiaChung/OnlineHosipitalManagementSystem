@@ -1,0 +1,155 @@
+body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
+	/* Simple page reset Download by http://sc.xueit.com*/
+	margin:0px;
+	padding:0px;
+}
+
+body{
+	/* Setting default text color, background and a font stack */
+	color:#cccccc;
+	font-size:13px;
+	background: #302b23;
+	font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+
+ul.container{
+	/* The topmost UL */
+	width:180px;
+	margin:0 auto;
+	padding:50px;
+}
+
+li{
+	list-style:none;
+	text-align:left;
+}
+
+li.menu{
+	/* The main list elements */
+	padding:5px 0;
+	width:180;
+}
+
+li.button a{
+	/* The section titles */
+	display:block;
+	font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+	font-size:15px;
+	height:34px;
+	overflow:hidden;
+	padding:5px 20px 0;
+	position:relative;
+	width:180px;
+	color:#000000;
+}
+
+li.button a:hover{
+	/* Removing the inherited underline from the titles */
+	text-decoration:none;
+	font-size:15px;
+}
+
+li.button a span{
+	/* This span acts as the right part of the section's background */
+	height:40px;
+	position:absolute;
+	right:0;
+	top:0;
+	width:4px;
+	display:block;
+}
+
+/* Setting up different styles for each section color */
+
+li.button a.blue{background:url(../images/blue.png) repeat-x top left; color:#074384;}
+li.button a.blue span{ background:url(../images/blue.png) repeat-x top right;}
+
+li.button a.green{background:url(../images/green.png) repeat-x top left; color:#436800;}
+li.button a.green span{ background:url(../images/green.png) repeat-x top right;}
+
+li.button a.orange{background:url(../images/orange.png) repeat-x top left; color:#882e02;}
+li.button a.orange span{ background:url(../images/orange.png) repeat-x top right;}
+
+li.button a.red{background:url(../images/red.png) repeat-x top left; color:#641603;}
+li.button a.red span{ background:url(../images/red.png) repeat-x top right;}
+
+li.button a.black{background:url(../images/black.png) repeat-x top left; color:#FFFFFF;}
+li.button a.black span{ background:url(../images/black.png) repeat-x top right;}
+
+li.button a.purple{background:url(../images/skin/purple.png) repeat-x top left; color:#FFFFFF;}
+li.button a.purple span{ background:url(../images/purple.png) repeat-x top right;}
+
+/* The hover effects */
+
+li.button a:hover{ background-position:bottom left;}
+li.button a:hover span{ background-position:bottom right;}
+
+.dropdown{
+	/* The expandable lists */
+	display:none;
+	padding-top:5px;
+	width:100%;
+}
+
+.dropdown li{
+	/* Each element in the expandable list */
+	background-color:#EBEBEB;
+	border:1px solid #40392C;
+	color:#CCCCCC;
+	margin:1px 0;
+	padding:4px 18px;
+}
+
+
+/* The styles below are only necessary for the demo page */
+
+h1{
+	font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+	font-size:36px;
+	font-weight:normal;
+	margin-bottom:15px;
+}
+
+h2{
+	font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+	font-size:12px;
+	font-weight:normal;
+	padding-right:140px;
+	right:0;
+	text-align:right;
+	text-transform:uppercase;
+	top:15px;
+}
+
+.clear{
+	clear:both;
+}
+
+#main{
+	/* The main container */
+	margin:15px auto;
+	text-align:center;
+	width:920px;
+	position:relative;
+}
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+p{
+	/* The tut info on the bottom of the page */
+	padding:10px;
+	text-align:center;
+}

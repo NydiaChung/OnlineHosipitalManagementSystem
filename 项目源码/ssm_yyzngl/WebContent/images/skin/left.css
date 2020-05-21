@@ -1,0 +1,64 @@
+body{
+margin:0px;
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:14px;
+color:white;
+background-color:#EAEAEA;
+text-align:center;
+scrollbar-face-color: #3691C7;
+scrollbar-highlight-color: #ffffff;
+scrollbar-shadow-color:  #666666;
+scrollbar-3dlight-color: #ADA696;
+scrollbar-arrow-color:  ffffff;
+scrollbar-track-color: #ffffff;
+scrollbar-darkshadow-color: #ffffff;
+}
+a:link{
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+color:#252323;
+text-decoration:none;
+}
+a:hover{
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+color:#800000;
+text-decoration:none;
+}
+a:actice{
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+color:#800000;
+text-decoration:none;
+}
+a:visited{
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+color:#252323;
+text-decoration:none;
+}
+table,td{
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+
+}
+
+.menu_title{
+	 COLOR: #FFFFFF; POSITION: relative; font-size:14px;text-align:center;
+}
+.menu_title a:link{
+font-size:14px;COLOR: #FFFFFF;
+}
+.menu_title a:visited{
+font-size:14px;COLOR: #FFFFFF;
+}
+.myweb_td{
+ background:#EBEBEB;
+font-family:"Î¢ÈíÑÅºÚ", sans-serif; 
+font-size:12px;
+background-color:#EBEBEB;
+color:black;
+line-height:20px;
+height:25px;
+text-align:center;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="admin" type="com.entity.Admin" />
+		<typeAlias alias="dept" type="com.entity.Dept" />
+		<typeAlias alias="doctor" type="com.entity.Doctor" />
+		<typeAlias alias="users" type="com.entity.Users" />
+		<typeAlias alias="banner" type="com.entity.Banner" />
+		<typeAlias alias="article" type="com.entity.Article" />
+		<typeAlias alias="asign" type="com.entity.Asign" />
+		<typeAlias alias="drugs" type="com.entity.Drugs" />
+		<typeAlias alias="advice" type="com.entity.Advice" />
+		<typeAlias alias="sell" type="com.entity.Sell" />
+		<typeAlias alias="bbs" type="com.entity.Bbs" />
+		<typeAlias alias="rebbs" type="com.entity.Rebbs" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/entity/admin.xml" />
+		<mapper resource="com/entity/dept.xml" />
+		<mapper resource="com/entity/doctor.xml" />
+		<mapper resource="com/entity/users.xml" />
+		<mapper resource="com/entity/banner.xml" />
+		<mapper resource="com/entity/article.xml" />
+		<mapper resource="com/entity/asign.xml" />
+		<mapper resource="com/entity/drugs.xml" />
+		<mapper resource="com/entity/advice.xml" />
+		<mapper resource="com/entity/sell.xml" />
+		<mapper resource="com/entity/bbs.xml" />
+		<mapper resource="com/entity/rebbs.xml" />
+	</mappers>
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

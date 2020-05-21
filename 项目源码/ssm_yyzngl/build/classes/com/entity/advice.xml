@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.AdviceDAO">
+	<resultMap type="advice" id="adviceMap">
+		<id property="adviceid" column="adviceid" />
+		<result property="ano" column="ano" />
+		<result property="usersid" column="usersid" />
+		<result property="doctorid" column="doctorid" />
+		<result property="contents" column="contents" />
+		<result property="addtime" column="addtime" />
+		<result property="username" column="username" />
+		<result property="realname" column="realname" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertAdvice" parameterType="advice">
+		insert into advice(adviceid , ano , usersid , doctorid , contents , addtime
+		) values(#{adviceid} , #{ano} , #{usersid} , #{doctorid} , #{contents}
+		, #{addtime} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateAdvice" parameterType="advice">
+		update advice set ano=#{ano} , usersid=#{usersid} , doctorid=#{doctorid} ,
+		contents=#{contents} , addtime=#{addtime} where adviceid=#{adviceid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteAdvice" parameterType="String">
+		delete from advice where adviceid = #{adviceid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllAdvice" resultMap="adviceMap">
+		select a.* , b.username , c.realname from advice a , users b , doctor c
+		where 1=1 and a.usersid = b.usersid and a.doctorid = c.doctorid order
+		by adviceid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getAdviceById" parameterType="String" resultMap="adviceMap">
+		select a.* , b.username , c.realname from advice a , users b , doctor
+		c where 1=1 and a.usersid = b.usersid and a.doctorid = c.doctorid and
+		adviceid=#{adviceid} order by adviceid desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getAdviceByCond" parameterType="advice" resultMap="adviceMap">
+		select a.* , b.username , c.realname from advice a , users b , doctor
+		c where 1=1 and a.usersid = b.usersid and a.doctorid = c.doctorid
+		<if test="ano != null and '' != ano">
+			and a.ano = #{ano}
+		</if>
+		<if test="usersid != null and '' != usersid">
+			and a.usersid = #{usersid}
+		</if>
+		<if test="doctorid != null and '' != doctorid">
+			and a.doctorid = #{doctorid}
+		</if>
+		<if test="contents != null and '' != contents">
+			and a.contents = #{contents}
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime = #{addtime}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getAdviceByLike" parameterType="advice" resultMap="adviceMap">
+		select a.* , b.username , c.realname from advice a , users b , doctor
+		c where 1=1 and a.usersid = b.usersid and a.doctorid = c.doctorid
+		<if test="ano != null and '' != ano">
+			and a.ano like CONCAT('%', CONCAT(#{ano}, '%'))
+		</if>
+		<if test="usersid != null and '' != usersid">
+			and a.usersid like CONCAT('%', CONCAT(#{usersid}, '%'))
+		</if>
+		<if test="doctorid != null and '' != doctorid">
+			and a.doctorid like CONCAT('%', CONCAT(#{doctorid}, '%'))
+		</if>
+		<if test="contents != null and '' != contents">
+			and a.contents like CONCAT('%', CONCAT(#{contents}, '%'))
+		</if>
+		<if test="addtime != null and '' != addtime">
+			and a.addtime like CONCAT('%', CONCAT(#{addtime}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

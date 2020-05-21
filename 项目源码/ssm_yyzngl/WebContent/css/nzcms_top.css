@@ -1,0 +1,36 @@
+#sddm
+{
+	z-index: 30;
+	width: auto;
+	height:30px;
+}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 12px arial}
+
+#sddm li a
+{		width: 100%}
+
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	border: 0px solid #666666}
+
+#sddm div a
+	{
+	position: relative;
+	text-align: left;
+	white-space: pre;
+	display: table;
+		padding-right: 6px;
+	padding-left: 6px;
+}
+	#sddm div a:hover
+	{
+	padding-right: 6px;
+	padding-left: 6px;
+}

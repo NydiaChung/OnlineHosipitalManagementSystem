@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.DoctorDAO">
+	<resultMap type="doctor" id="doctorMap">
+		<id property="doctorid" column="doctorid" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="realname" column="realname" />
+		<result property="deptid" column="deptid" />
+		<result property="image" column="image" />
+		<result property="sex" column="sex" />
+		<result property="birthday" column="birthday" />
+		<result property="xueli" column="xueli" />
+		<result property="biye" column="biye" />
+		<result property="themax" column="themax" />
+		<result property="contents" column="contents" />
+		<result property="deptname" column="deptname" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertDoctor" parameterType="doctor">
+		insert into doctor(doctorid , username , password , realname , deptid ,
+		image , sex , birthday , xueli , biye , themax , contents )
+		values(#{doctorid} , #{username} , #{password} , #{realname} ,
+		#{deptid} , #{image} , #{sex} , #{birthday} , #{xueli} , #{biye} ,
+		#{themax} , #{contents} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateDoctor" parameterType="doctor">
+		update doctor set username=#{username} , password=#{password} ,
+		realname=#{realname} , deptid=#{deptid} , image=#{image} , sex=#{sex}
+		, birthday=#{birthday} , xueli=#{xueli} , biye=#{biye} ,
+		themax=#{themax} , contents=#{contents} where doctorid=#{doctorid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteDoctor" parameterType="String">
+		delete from doctor where doctorid = #{doctorid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllDoctor" resultMap="doctorMap">
+		select a.* , b.deptname from doctor a , dept b where 1=1 and a.deptid =
+		b.deptid order by doctorid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getDoctorById" parameterType="String" resultMap="doctorMap">
+		select a.* , b.deptname from doctor a , dept b where 1=1 and a.deptid
+		= b.deptid and doctorid=#{doctorid} order by doctorid desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getDoctorByCond" parameterType="doctor" resultMap="doctorMap">
+		select a.* , b.deptname from doctor a , dept b where 1=1 and a.deptid
+		= b.deptid
+		<if test="username != null and '' != username">
+			and a.username = #{username}
+		</if>
+		<if test="password != null and '' != password">
+			and a.password = #{password}
+		</if>
+		<if test="realname != null and '' != realname">
+			and a.realname = #{realname}
+		</if>
+		<if test="deptid != null and '' != deptid">
+			and a.deptid = #{deptid}
+		</if>
+		<if test="image != null and '' != image">
+			and a.image = #{image}
+		</if>
+		<if test="sex != null and '' != sex">
+			and a.sex = #{sex}
+		</if>
+		<if test="birthday != null and '' != birthday">
+			and a.birthday = #{birthday}
+		</if>
+		<if test="xueli != null and '' != xueli">
+			and a.xueli = #{xueli}
+		</if>
+		<if test="biye != null and '' != biye">
+			and a.biye = #{biye}
+		</if>
+		<if test="themax != null and '' != themax">
+			and a.themax = #{themax}
+		</if>
+		<if test="contents != null and '' != contents">
+			and a.contents = #{contents}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getDoctorByLike" parameterType="doctor" resultMap="doctorMap">
+		select a.* , b.deptname from doctor a , dept b where 1=1 and a.deptid
+		= b.deptid
+		<if test="username != null and '' != username">
+			and a.username like CONCAT('%', CONCAT(#{username}, '%'))
+		</if>
+		<if test="password != null and '' != password">
+			and a.password like CONCAT('%', CONCAT(#{password}, '%'))
+		</if>
+		<if test="realname != null and '' != realname">
+			and a.realname like CONCAT('%', CONCAT(#{realname}, '%'))
+		</if>
+		<if test="deptid != null and '' != deptid">
+			and a.deptid like CONCAT('%', CONCAT(#{deptid}, '%'))
+		</if>
+		<if test="image != null and '' != image">
+			and a.image like CONCAT('%', CONCAT(#{image}, '%'))
+		</if>
+		<if test="sex != null and '' != sex">
+			and a.sex like CONCAT('%', CONCAT(#{sex}, '%'))
+		</if>
+		<if test="birthday != null and '' != birthday">
+			and a.birthday like CONCAT('%', CONCAT(#{birthday}, '%'))
+		</if>
+		<if test="xueli != null and '' != xueli">
+			and a.xueli like CONCAT('%', CONCAT(#{xueli}, '%'))
+		</if>
+		<if test="biye != null and '' != biye">
+			and a.biye like CONCAT('%', CONCAT(#{biye}, '%'))
+		</if>
+		<if test="themax != null and '' != themax">
+			and a.themax like CONCAT('%', CONCAT(#{themax}, '%'))
+		</if>
+		<if test="contents != null and '' != contents">
+			and a.contents like CONCAT('%', CONCAT(#{contents}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

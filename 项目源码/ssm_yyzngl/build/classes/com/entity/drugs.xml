@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.DrugsDAO">
+	<resultMap type="drugs" id="drugsMap">
+		<id property="drugsid" column="drugsid" />
+		<result property="drugsname" column="drugsname" />
+		<result property="price" column="price" />
+		<result property="productor" column="productor" />
+		<result property="memo" column="memo" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertDrugs" parameterType="drugs">
+		insert into drugs(drugsid , drugsname , price , productor , memo )
+		values(#{drugsid} , #{drugsname} , #{price} , #{productor} , #{memo} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateDrugs" parameterType="drugs">
+		update drugs set drugsname=#{drugsname} , price=#{price} ,
+		productor=#{productor} , memo=#{memo} where drugsid=#{drugsid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteDrugs" parameterType="String">
+		delete from drugs where drugsid = #{drugsid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllDrugs" resultMap="drugsMap">
+		select a.* from drugs a where 1=1 order by drugsid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getDrugsById" parameterType="String" resultMap="drugsMap">
+		select a.* from drugs a where 1=1 and drugsid=#{drugsid} order by
+		drugsid desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getDrugsByCond" parameterType="drugs" resultMap="drugsMap">
+		select a.* from drugs a where 1=1
+		<if test="drugsname != null and '' != drugsname">
+			and a.drugsname = #{drugsname}
+		</if>
+		<if test="price != null and '' != price">
+			and a.price = #{price}
+		</if>
+		<if test="productor != null and '' != productor">
+			and a.productor = #{productor}
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo = #{memo}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getDrugsByLike" parameterType="drugs" resultMap="drugsMap">
+		select a.* from drugs a where 1=1
+		<if test="drugsname != null and '' != drugsname">
+			and a.drugsname like CONCAT('%', CONCAT(#{drugsname}, '%'))
+		</if>
+		<if test="price != null and '' != price">
+			and a.price like CONCAT('%', CONCAT(#{price}, '%'))
+		</if>
+		<if test="productor != null and '' != productor">
+			and a.productor like CONCAT('%', CONCAT(#{productor}, '%'))
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo like CONCAT('%', CONCAT(#{memo}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mabatis映射文件 -->
+<mapper namespace="com.dao.AsignDAO">
+	<resultMap type="asign" id="asignMap">
+		<id property="asignid" column="asignid" />
+		<result property="ano" column="ano" />
+		<result property="usersid" column="usersid" />
+		<result property="deptid" column="deptid" />
+		<result property="doctorid" column="doctorid" />
+		<result property="orderdate" column="orderdate" />
+		<result property="status" column="status" />
+		<result property="memo" column="memo" />
+		<result property="username" column="username" />
+		<result property="deptname" column="deptname" />
+		<result property="realname" column="realname" />
+	</resultMap>
+	<!-- 插入语句 DAO通过id调用此配置 -->
+	<insert id="insertAsign" parameterType="asign">
+		insert into asign(asignid , ano , usersid , deptid , doctorid , orderdate ,
+		status , memo ) values(#{asignid} , #{ano} , #{usersid} , #{deptid} ,
+		#{doctorid} , #{orderdate} , #{status} , #{memo} )
+	</insert>
+	<!-- 更新语句 DAO通过id调用此配置 -->
+	<update id="updateAsign" parameterType="asign">
+		update asign set ano=#{ano} , usersid=#{usersid} , deptid=#{deptid} ,
+		doctorid=#{doctorid} , orderdate=#{orderdate} , status=#{status} ,
+		memo=#{memo} where asignid=#{asignid}
+	</update>
+	<!-- 按主键删除 DAO通过id调用此配置 -->
+	<delete id="deleteAsign" parameterType="String">
+		delete from asign where asignid = #{asignid}
+	</delete>
+	<!-- 查询全部信息 DAO通过id调用此配置 -->
+	<select id="getAllAsign" resultMap="asignMap">
+		select a.* , b.username , c.deptname , d.realname from asign a , users b ,
+		dept c , doctor d where 1=1 and a.usersid = b.usersid and a.deptid =
+		c.deptid and a.doctorid = d.doctorid order by asignid desc
+	</select>
+	<!-- 按主键查询 DAO通过id调用此配置 -->
+	<select id="getAsignById" parameterType="String" resultMap="asignMap">
+		select a.* , b.username , c.deptname , d.realname from asign a , users
+		b , dept c , doctor d where 1=1 and a.usersid = b.usersid and a.deptid
+		= c.deptid and a.doctorid = d.doctorid and asignid=#{asignid} order by
+		asignid desc
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="getAsignByCond" parameterType="asign" resultMap="asignMap">
+		select a.* , b.username , c.deptname , d.realname from asign a , users
+		b , dept c , doctor d where 1=1 and a.usersid = b.usersid and a.deptid
+		= c.deptid and a.doctorid = d.doctorid
+		<if test="ano != null and '' != ano">
+			and a.ano = #{ano}
+		</if>
+		<if test="usersid != null and '' != usersid">
+			and a.usersid = #{usersid}
+		</if>
+		<if test="deptid != null and '' != deptid">
+			and a.deptid = #{deptid}
+		</if>
+		<if test="doctorid != null and '' != doctorid">
+			and a.doctorid = #{doctorid}
+		</if>
+		<if test="orderdate != null and '' != orderdate">
+			and a.orderdate = #{orderdate}
+		</if>
+		<if test="status != null and '' != status">
+			and a.status = #{status}
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo = #{memo}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="getAsignByLike" parameterType="asign" resultMap="asignMap">
+		select a.* , b.username , c.deptname , d.realname from asign a , users
+		b , dept c , doctor d where 1=1 and a.usersid = b.usersid and a.deptid
+		= c.deptid and a.doctorid = d.doctorid
+		<if test="ano != null and '' != ano">
+			and a.ano like CONCAT('%', CONCAT(#{ano}, '%'))
+		</if>
+		<if test="usersid != null and '' != usersid">
+			and a.usersid like CONCAT('%', CONCAT(#{usersid}, '%'))
+		</if>
+		<if test="deptid != null and '' != deptid">
+			and a.deptid like CONCAT('%', CONCAT(#{deptid}, '%'))
+		</if>
+		<if test="doctorid != null and '' != doctorid">
+			and a.doctorid like CONCAT('%', CONCAT(#{doctorid}, '%'))
+		</if>
+		<if test="orderdate != null and '' != orderdate">
+			and a.orderdate like CONCAT('%', CONCAT(#{orderdate}, '%'))
+		</if>
+		<if test="status != null and '' != status">
+			and a.status like CONCAT('%', CONCAT(#{status}, '%'))
+		</if>
+		<if test="memo != null and '' != memo">
+			and a.memo like CONCAT('%', CONCAT(#{memo}, '%'))
+		</if>
+	</select>
+</mapper>
+
+

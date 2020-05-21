@@ -1,0 +1,40 @@
+﻿@charset "utf-8";
+/*----------base */
+* { padding:0; margin:0; }
+body { font-family:"微软雅黑", sans-serif; font-size:16px; color:#000000; line-height:1.25em; backgroud-color:#fff; }
+ul, ol, dl { list-style:none; }
+img { border:none; }
+form, input, label, select, option, textarea, button, fieldset, legend { font-size:12px; line-height:14px; font-family:Tahoma, "宋体", sans-serif; }
+p { text-indent:0; }
+/*----------color */
+a { color:#000000; text-decoration:none; }
+a:hover { text-decoration:underline; }
+/*----------public */
+.clear { clear:both; height:0; width:0; line-height:0; overflow:hidden; }
+.wrapper { width:980px; clear:both; margin:10px auto 0}
+.f_left { float:left; width:376px; overflow:hidden; height:648px; background:url(moble.jpg) no-repeat 0 0; position:relative; }
+.f_right { float:right; width:642px; overflow:hidden; height:648px; background:url(../images/bg_3.jpg) no-repeat 0 0; }
+/*----------phone */
+.phone { padding-left:60px; padding-top:123px; }
+.phone_button { padding-top:11px; padding-left:76px; }
+.phone_button li { width:400px; height:16px; float:left; margin-right:6px; }
+/*--使iframe内链接无效
+.phone_box { position:absolute; top:123px; left:60px; width:238px; height:310px; background:url(../images/bg_4.gif) no-repeat 0 0; }
+*/
+/*----------one */
+.one { width:247px; float:left; }
+.one h3 { height:33px; line-height:33px; padding-left:24px; background:url(../images/box_a_title.gif) no-repeat 0 0; font-size:14px; font-weight:normal; color:#2574d4; }
+.one ul { background:url(../images/box_a_bg.gif) repeat-y 0 0; padding-top:12px; }
+.one ul li { padding-left:24px; padding-right:24px; line-height:24px; }
+.one .bottom { background:url(../images/box_a_bottom.gif) no-repeat 0 bottom; height:12px; overflow:hidden; line-height:12px; }
+.box_a { padding-left:44px; padding-top:260px; }
+.box_b { padding-left:44px; padding-top:260px; }
+/*----------two */
+.two { float:left; background:url(../images/bg_1.gif) no-repeat 44px 0; width:520px; height:54px; margin-top:6px; padding-left:44px; }
+.two li { float:left; line-height:21px; }
+.two .content_1 { padding-left:12px; width:120px; padding-top:15px; }
+.two .content_2 { padding-left:34px; width:160px; padding-top:6px; }
+.two .content_3 { padding-left:42px; width:180px; padding-top:15px; }
+/*----------label */
+.label_a { color:#7d7d7d; padding-left:44px; padding-top:6px; }
+.label_b { color:#2574d4; padding-left:44px; padding-top:28px; font-size:14px; }

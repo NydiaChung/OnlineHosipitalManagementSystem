@@ -1,0 +1,179 @@
+/* -----------------------------------------------------------
+ 这里开始框属性
+ 
+*/
+
+body {  /*  背景*/
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FFFFFF;
+	background-attachment: fixed;
+	background-image: url(../images/nzcms/nzcms_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center top;
+
+}
+
+.nzcms_left_bg {/*  分类导航*/
+	background-image: url(../images/nzcms/list_bg.gif);}
+
+.kk {
+	border: 1px solid #B7DEFF;
+
+
+}
+.kk22 {
+	border: 1px solid #88BBE6;
+}
+.kk_dx {
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #B2D8F3;
+	border-bottom-color: #FFFFFF;
+}
+
+
+
+
+
+.top {
+	border-top-width: 1px;
+
+	border-top-style: solid;
+	border-top-color: #073280;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #B2D1ED;
+}
+.top01 {
+	background-color: #FFFFFF;
+	border-top-width: 1px;
+	border-right-width: 8px;
+	border-bottom-width: 8px;
+	border-left-width: 8px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #D1E7FF;
+	border-right-color: #D1E7FF;
+	border-bottom-color: #D1E7FF;
+	border-left-color: #D1E7FF;
+}
+
+.title12 {
+	font-size: 12px;
+	color: #0072BC;
+}
+
+.title12b {
+	font-size: 12px;
+	font-weight: bold;
+	color: #0072BC;
+}
+
+.title14b {
+	font-size: 14px;
+	font-weight: bold;
+	color: #0072BC;
+	font-family: "微软雅黑";
+}
+
+.title18b {
+	font-size: 18px;
+	font-weight: bold;
+	color: #0072BC;
+	font-family: "微软雅黑";
+}
+
+.title24b {
+	font-size: 24px;
+	font-weight: bold;
+	color: #0072BC;
+	font-family: "微软雅黑";
+/* -----------------------------------------------------------
+ 这里开始链接文字性
+ 
+*/
+
+
+}
+
+a.left:visited {
+	
+        color: #0072BC;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+a.left:hover {
+	color: #025D97;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+
+}
+a.left:link {
+	text-decoration: none;
+	color: #0072BC;
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+a.left:active {	text-decoration: none;
+	color: #0072BC;
+	font-size: 14px;
+	font-weight: bold;
+	
+/*  分页左边栏目链接文字*/
+
+
+}a.left2:visited {
+	text-decoration: none;
+	font-size: 14px;
+	color: #333333;
+}
+a.left2:hover {
+	text-decoration: none;
+	font-size: 14px;
+	color: #990000;
+}
+a.left2:link {
+	text-decoration: none;
+	font-size: 14px;
+	color: #333333;
+	
+}
+a.left2:active {
+	text-decoration: none;
+	font-size: 14px;
+	color: #333333;
+	
+/*  办事指南链接*/
+}a.left_index:visited {
+	text-decoration: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.left_index:hover {
+	color: #CC0000;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+
+
+}
+a.left_index:link {
+	text-decoration: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a.left_index:active {
+	text-decoration: none;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
